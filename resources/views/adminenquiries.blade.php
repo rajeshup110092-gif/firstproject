@@ -1,6 +1,10 @@
 @extends("layouts.dashboard")
 
 @section("contact")
+<form action="/admin/enquiries/search">
+    <input type="search" name="searchkiyakya" placeholder="search">
+    <input type="submit" value="searchbar">
+</form>
     @foreach($enquiry_table  as  $enquiry)
         <div>
             <div>{{ $enquiry->name }}</div>
@@ -14,7 +18,9 @@
             <input type="submit" value="DELETE">
             <div>
                 <a href="/edit_enquiry/{{ $enquiry->id }}">EDIT</a>
+                <a href="/admin/viewenquiry/{{$enquiry->id}}">VIEW</a>
             </div>
+            
         </form>
     @endforeach
 @endsection

@@ -16,6 +16,12 @@ class EnquiryController extends Controller
         return view("adminenquiries",compact("enquiry_table"));
     }
 
+    public function search(Request $request)
+    {
+        $formsearch=$request->searchkiyakya;
+        $enquiry_table=Enquiry::where("name","LIKE","%$formsearch%")->get();
+        return view("adminenquiries",compact("enquiry_table"));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -42,9 +48,10 @@ class EnquiryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Enquiry $enquiry)
+    public function show(Request $request)
     {
-        //
+         $currentdata=Enquiry::find($request->id);
+        return view("shoWpage", compact("currentdata"));
     }
 
     /**

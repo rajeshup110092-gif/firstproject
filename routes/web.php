@@ -21,6 +21,8 @@ Route::get('/admin/enquiries', [EnquiryController::class, "index"]);
 Route::delete("delete_enquiries/{id}",[EnquiryController::class, "destroy"]);
 Route::get("edit_enquiry/{id}",[EnquiryController::class, "edit"]);
 Route::put("update_enquiry/{id}",[EnquiryController::class, "update"]);
+Route::get("/admin/enquiries/search",[EnquiryController::class, "search"]);
+Route::get("/admin/viewenquiry/{id}",[EnquiryController::class, "show"]);
 
 
 
